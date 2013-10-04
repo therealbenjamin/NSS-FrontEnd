@@ -6,6 +6,18 @@ function initialize() {
   $('#add').click(addRow);
   $('table').on('click', '.rsvp', rsvp);
   $('table').on('click', '.nuke', nuke);
+  $('table').on('click', '.arrow_up', moveUp);
+  $('table').on('click', '.arrow_down', moveDown);
+}
+
+function moveUp(){
+  var $up = $(this);
+  $up.parent().parent().detach();
+}
+
+function moveDown(){
+  var $down = $(this);
+  $down.parent().parent().detach();
 }
 
 function rsvp(){
@@ -30,6 +42,8 @@ function addRow(){
   $ctrl.addClass('ctrl');
   var $nuke = $('<td>');
   $nuke.addClass('nuke');
+  var $arrows = $('<td>');
+  $arrows.addClass('arrows');
 
   var $input = $('<input>');
   $input.attr('type', 'text');
@@ -37,16 +51,24 @@ function addRow(){
   var $nukeButton = $('<input>');
   $nukeButton.attr('type', 'button');
   $nukeButton.val('NUKE!');
-  $nukeButton.addClass('nuke')
-
+  $nukeButton.addClass('nuke');
   $button.attr('type', 'button');
   $button.val('RSVP!');
   $button.addClass('rsvp');
 
+  var $arrowUp = $('<img>');
+  $arrowUp.addClass('arrow_up');
+  $arrowUp.attr('src', 'images/up_arrow.png');
+  var $arrowDown = $('<img>');
+  $arrowDown.addClass('arrow_down');
+  $arrowDown.attr('src', 'images/down_arrow.png');
+
   $ctrl.append($input, $button);
   $nuke.append($nukeButton);
   $('table').append($tr);
-  $tr.append([$name, $food, $ctrl, $nuke]);
+  $($arrows).append($arrowUp, $arrowDown);
+  $tr.append([$name, $food, $ctrl, $nuke, $arrows]);
+
 
   $input.focus();
 }
