@@ -6,18 +6,20 @@ function initialize() {
   $('#add').click(addRow);
   $('table').on('click', '.rsvp', rsvp);
   $('table').on('click', '.nuke', nuke);
-  $('table').on('click', '.arrow_up', moveUp);
-  $('table').on('click', '.arrow_down', moveDown);
+  $('table').on('click', '.arrow_up', move);
+  $('table').on('click', '.arrow_down', move);
 }
 
-function moveUp(){
+function move(){
   var $up = $(this);
-  $up.parent().parent().detach();
-}
+  var $tr = $up.parent().parent();
 
-function moveDown(){
-  var $down = $(this);
-  $down.parent().parent().detach();
+  if($up.hasClass('arrow_up')) {
+    $tr.prev().before($tr);
+  }
+  else {
+    $tr.next().after($tr);
+  }
 }
 
 function rsvp(){
