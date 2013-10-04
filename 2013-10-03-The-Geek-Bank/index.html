@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>QUnit Template</title>
+    <link href='css/normalize.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <h1>Geek Bank</h1>
+    <img id='logo'>
+    <div class='clear'></div>
+    <input id='url' placeholder='Enter Image URL' type='text'>
+    <div class='clear'></div>
+    <input id='set_logo' type='button' value='Set Logo!'>
+    <div class='clear'></div>
+    <input id='input_balance' placeholder='Enter Balance' type='text'>
+    <div class='clear'></div>
+    <input id='set_balance' type='button' value='Set Balance!'>
+    <div class='clear'></div>
+    <input id='amount' placeholder='Enter Amount' type='text'>
+    <div class='clear'></div>
+    <input id='deposit' type='button' value='Deposit!'>
+    <input id='withdraw' type='button' value='Withdraw!'>
+    <h3 class='green' id='balance'>BALANCE</h3>
+    <h2 id='break'>Transaction List</h2>
+    <section id='left'>
+      <h3>Deposits</h3>
+      <div id='deposits'></div>
+    </section>
+    <section id='right'>
+      <h3>Withdrawals</h3>
+      <div id='withdraws'></div>
+    </section>
+    <script src='js/jquery-1.10.2.min.js'></script>
+    <script src='js/underscore-min.js'></script>
+    <script src='js/main.js'></script>
+  </body>
+</html>

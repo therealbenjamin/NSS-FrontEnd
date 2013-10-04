@@ -1,0 +1,56 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title HAML & SASS Template
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    .main
+      %header
+        %h1 Movie List
+      %nav
+        %ul
+          %li
+            %a{href: '#'} Jaws
+          %li
+            %a{href: '#'} Lord of the Rings
+          %li
+            %a{href: '#'} %Titanic
+      %section
+        = Haml::Engine.new(File.read('movies/_jaws.haml')).render
+        = Haml::Engine.new(File.read('movies/_lotr.haml')).render
+        = Haml::Engine.new(File.read('movies/_titanic.haml')).render
+
+        %h1 Movie Time: 3
+      %nav
+        %ul
+          %li
+            %a{href:'#'} Jaws
+          %li
+            %a{href:'#'} Titanic
+          %li
+            %a{href:'#'} Lord of the Rings
+      %section
+        %h1 Jaws
+        %h2 Attack of the shark
+        %p
+          Hello
+          %strong world
+        %p
+          This is a very long
+          sentence so it goes over
+          multiple lines
+        %p#fun
+          This is a fun ID :-)
+        %p.classy
+          This p tag is very classy ... lol
+        %p#oh.really.yes
+          This p tag has an ID of oh and 2 classes
+        %a_div
+          This is just a div with an ID of a_div
+        .classy_div
+          This is one classy div
+      %footer
+
+

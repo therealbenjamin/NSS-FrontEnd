@@ -1,0 +1,42 @@
+body
+{
+  width: 960px;
+  margin: 0 auto;
+  background-image: url(../images/circus.jpg);
+}
+
+h1
+{
+  text-align: center;
+  color: lightgray;
+  margin-top: 20%;
+}
+
+p
+{
+  text-align: center;
+  color: lightgray;
+}
+
+#num_1
+{
+  margin-left: 26%;
+  margin-top: 5%;
+  text-align: center;
+}
+
+#num_2
+{
+  text-align: center;
+}
+
+#calculate
+{
+  margin-top: 40px;
+  margin-left: 434px;
+}
+
+.clear
+{
+  clear: both;
+}

@@ -1,0 +1,59 @@
+@import url(http://fonts.googleapis.com/css?family=Denk+One);
+@import url(http://fonts.googleapis.com/css?family=Pathway+Gothic+One);
+
+body
+{
+  font-family: 'Pathway Gothic One', sans-serif;
+  background-color: orange;
+}
+
+#logoimg
+{
+  float: left;
+  width: 225px;
+}
+
+#logotext
+{
+  float: left;
+  width: 200px;
+  font-family: 'Denk One', sans-serif;
+  font-size: 75px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.clear
+{
+  clear: both;
+}
+
+section > h2
+{
+  font-size: 40px;
+}
+
+ul
+{
+  list-style: inside disc;
+  padding-left: 5px;
+}
+
+section > p
+{
+  font-size: 15px;
+  padding: 10px;
+  line-height: 20px;
+}
+
+p:nth-child(even)
+{
+  font-style: italic;
+  color: purple;
+}
+
+nav > a:hover
+{
+  background-color: green;
+  font-size: 50px;
+}

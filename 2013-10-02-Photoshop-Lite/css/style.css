@@ -1,0 +1,74 @@
+@import url(http://fonts.googleapis.com/css?family=Monoton);
+.box {
+  float: left;
+  width: 75px;
+  height: 75px;
+  border: 3px solid gray;
+  margin: 10px;
+  text-align: center; }
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  background-color: black; }
+
+h1 {
+  color: darkgray;
+  text-align: center;
+  font-family: 'Monoton', cursive;
+  font-size: 52px;
+  margin-top: 15%;
+  margin-bottom: 5%;
+  min-height: 120px; }
+
+input {
+  float: left;
+  margin: 12px;
+  text-align: center;
+  font-family: 'Monoton', cursive;
+  color: black; }
+
+#color {
+  margin-left: 34%;
+  margin-bottom: 20px; }
+
+#add_color {
+  padding: 2px;
+  font-family: 'Monoton';
+  margin-left: 43.5%; }
+
+#brush {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+  position: fixed;
+  top: 100px;
+  left: 70px;
+  color: white;
+  text-align: center;
+  padding-top: 5.75%; }
+
+#colors {
+  margin: 12px;
+  border: 1px dashed gray; }
+
+#amount {
+  margin-left: 34%; }
+
+#add_box {
+  margin-left: 43%; }
+
+#bottom_border {
+  margin: 0 auto;
+  width: 950px;
+  margin-top: 12px;
+  border-bottom: 1px dashed gray; }
+
+.div_box {
+  float: left;
+  height: 5px;
+  width: 5px;
+  border: 1px dotted gray; }
+
+.clear {
+  clear: both; }

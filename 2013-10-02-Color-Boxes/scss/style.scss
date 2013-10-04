@@ -1,0 +1,40 @@
+.box
+{
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  margin: 10px;
+  color: white;
+}
+
+body
+{
+  margin: 0 auto;
+  width: 960px;
+  background-color: orange;
+}
+
+h1
+{
+  text-align: center;
+  margin-top: 15%;
+}
+
+#colorString
+{
+  float: left;
+  margin-left: 37.5%;
+  margin-bottom: 20px;
+}
+
+#colorButton
+{
+  float: left;
+  margin-left: 28%;
+}
+
+.clear
+{
+  clear: both;
+}

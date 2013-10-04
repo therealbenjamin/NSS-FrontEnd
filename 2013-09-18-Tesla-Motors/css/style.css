@@ -1,0 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Istok+Web);
+header {
+  border: 2px dashed #620b0b; }
+  header #logo {
+    width: 78px;
+    height: 105px;
+    background: url(images/tesla_flag.png);
+    float: left; }
+  header #company {
+    float: left; }
+    header #company h1 {
+      font-family: "Istok Web", sans-serif;
+      margin-left: 50px;
+      margin-top: 30px; }
+
+nav ul {
+  list-style-type: none;
+  padding: 0px; }
+  nav ul li {
+    display: inline-block;
+    padding-left: 210px; }
+
+div#content section h1 {
+  color: #620b0b;
+  font-family: "Istok Web", sans-serif;
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: 5px;
+  margin: 5px;
+  padding: 10px;
+  border: 2px dashed green;
+  border-radius: 20px;
+  background-color: yellow;
+  box-shadow: 5px 5px 10px black; }
+div#content section h2 {
+  color: #472626;
+  font-family: "Istok Web", sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  margin: 5px;
+  padding: 10px;
+  border: 2px dashed green;
+  border-radius: 20px;
+  background-color: yellow;
+  box-shadow: 5px 5px 10px black; }
+div#content section p {
+  color: #ff0033;
+  font-family: "Istok Web", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  margin: 5px;
+  padding: 10px;
+  border: 2px dashed green;
+  border-radius: 20px;
+  background-color: yellow;
+  box-shadow: 5px 5px 10px black; }
+
+footer p {
+  font-size: 10px;
+  color: #620b0b; }
+
+#main {
+  margin: 0 auto;
+  width: 960px; }
+  #main a {
+    text-decoration: none;
+    color: #620b0b; }
+    #main a:hover {
+      text-decoration: underline;
+      color: #4c2121; }
+
+.clear {
+  clear: both; }

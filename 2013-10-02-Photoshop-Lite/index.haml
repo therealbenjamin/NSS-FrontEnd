@@ -1,0 +1,26 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Photoshop Lite
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    %h1 Photoshop Lite
+    %input#color{type: 'text', placeholder: 'Enter a color:', autofocus: true}
+    .clear
+    %input#add_color{type: 'button', value: 'Add Color'}
+    %span#brush BRUSH
+    .clear
+    #colors
+    .clear
+    %input#amount{type: 'text', placeholder: 'How many boxes?'}
+    .clear
+    %input#add_box{type: 'button', value: 'Add boxes!'}
+    .clear
+    #bottom_border
+    #boxes
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}

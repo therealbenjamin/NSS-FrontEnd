@@ -1,0 +1,18 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Wacky Multiplier!
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    %h1 Wacky Multiplier!
+    %p Welcome to WACKY MULTIPLIER, the downright WACKIEST useless web app EVER! Enter two numbers into the form below and click "Calculate!" This program will create an array of numbers from 1 to the number you enter in the first box, multiply each of those numbers by the number you enter in the second box, and add together the products! Huzzah!
+    %input#num_1{type: 'text', placeholder: '1st number:'}
+    %input#num_2{type: 'text', placeholder: '2nd number:'}
+    .clear
+    %input#calculate{type: 'button', value: 'Calculate!'}
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}

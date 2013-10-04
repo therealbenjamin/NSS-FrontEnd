@@ -1,0 +1,43 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title QUnit Template
+    %link{rel: 'stylesheet', href: 'css/normalize.css'}
+    %link{rel: 'stylesheet', href: 'css/style.css'}
+  %body
+    %h1 Geek Bank
+    %img#logo
+    .clear
+    %input#url{type: 'text', placeholder: 'Enter Image URL'}
+    .clear
+    %input#set_logo{type: 'button', value: 'Set Logo!'}
+    .clear
+
+    %input#input_balance{type: 'text', placeholder: 'Enter Balance'}
+    .clear
+    %input#set_balance{type: 'button', value: 'Set Balance!'}
+    .clear
+
+    %input#amount{type: 'text', placeholder: 'Enter Amount'}
+    .clear
+    %input#deposit{type: 'button', value: 'Deposit!'}
+    %input#withdraw{type: 'button', value: 'Withdraw!'}
+
+    %h3#balance.green BALANCE
+
+    %h2#break Transaction List
+
+    %section#left
+      %h3 Deposits
+      #deposits
+
+    %section#right
+      %h3 Withdrawals
+      #withdraws
+
+
+
+    %script{src: 'js/jquery-1.10.2.min.js'}
+    %script{src: 'js/underscore-min.js'}
+    %script{src: 'js/main.js'}
