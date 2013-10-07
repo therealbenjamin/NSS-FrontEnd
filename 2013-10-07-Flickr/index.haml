@@ -4,7 +4,7 @@
 %head
   %meta{charset: "utf-8"}
   %meta{name: "viewport", content: "width=device-width"}
-  %title Foundation 4
+  %title Flickr Slideshow
   %link{rel: "stylesheet", href: "css/normalize.css"}
   %link{rel: "stylesheet", href: "css/foundation.css"}
   %link{rel: "stylesheet", href: "css/app.css"}
@@ -16,12 +16,18 @@
   .row
     .small-2.columns
       %input#query{type: 'text', autofocus: true}
-    .small-2.columns
-      %input#search.button.radius.small{type: 'button', value: 'Search Flickr'}
-    .small-8.columns
+    .small-10.columns
+      %input#search.button.radius.small{type: 'button', value: 'Search'}
+      %input#clear.button.radius.small.alert{type: 'button', value: 'Clear'}
+      %input#delete.button.radius.small.alert{type: 'button', value: 'Delete'}
+      %input#save.button.radius.small.success{type: 'button', value: 'Save'}
   .row
-    .small-12.columns
+    .small-8.columns
+      %h4.subheader Search Photos
       #photos
+    .small-4.columns
+      %h4.subheader Saved Photos
+      #saved_photos
 
 
 

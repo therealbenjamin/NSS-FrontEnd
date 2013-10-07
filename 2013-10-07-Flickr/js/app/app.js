@@ -6,11 +6,34 @@ function initialize(){
   $(document).foundation();
   $('#search').click(searchFlickr);
   $('#photos').on('dblclick', '.photo', removeImage);
+  $('#clear').click(clearImages);
+  $('#photos').on('click', '.photo', highlightImage);
+  $('#delete').click(deleteImages);
+  $('#save').click(saveImages);
+}
+
+function saveImages(){
+  var $selected = $('.highlight');
+  $selected.removeClass('highlight');
+  $('#saved_photos').prepend($selected);
+}
+
+function deleteImages(){
+  $('.highlight').remove();
+}
+
+function highlightImage(){
+  $(this).toggleClass('highlight');
+}
+
+function clearImages()
+{
+  $('#photos').empty();
 }
 
 function searchFlickr(){
   const API_KEY = 'f2b643a85999bc1ce3676579ac5420a4';
-  const PER_PAGE = 500;
+  const PER_PAGE = 100;
   var page = 1;
 
   var query = $('#query').val();
