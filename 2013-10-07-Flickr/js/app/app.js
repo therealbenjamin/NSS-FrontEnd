@@ -5,6 +5,7 @@ $(document).ready(initialize);
 function initialize(){
   $(document).foundation();
   $('#search').click(searchFlickr);
+  $('#photos').on('dblclick', '.photo', removeImage);
 }
 
 function searchFlickr(){
@@ -29,4 +30,8 @@ function createImage(photo){
   $div.addClass('photo');
   $div.css('background-image', url);
   $('#photos').prepend($div);
+}
+
+function removeImage(){
+  $(this).remove();
 }
