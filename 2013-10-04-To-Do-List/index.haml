@@ -1,23 +1,26 @@
 !!! 5
 %html{lang: 'en'}
   %head
+    %link{rel:"stylesheet", href:"css/normalize.css"}
+    %link{rel:"stylesheet", href:"css/style.css"}
     %meta{charset: 'utf-8'}
     %title To Do List
-    %link{rel: 'stylesheet', href: 'css/normalize.css'}
-    %link{rel: 'stylesheet', href: 'css/style.css'}
   %body
     %header
       %h1 To Do List
-    %input#add{type: 'button', value: 'Add Task'}
+    #form
+      %input#due{type:'text', placeholder:'Due Date'}
+      %input#task{type:'text', placeholder:'Task'}
+      %input#color{type:'text', placeholder:'Color'}
+      %input#add{type:'button', value:'Add Task'}
     %table
-      %tr.home
-        %th Due Date
-        %th Task
-        %th Color
-        %th Done?
-        %th Remove?
-        %th Up / Down
-
-    %script{src: 'js/jquery-1.10.2.min.js'}
-    %script{src: 'js/underscore-min.js'}
-    %script{src: 'js/main.js'}
+      %tr.head
+        %th.head.due Due Date
+        %th.head.task Task
+        %th.head.color Color
+        %th.head.done Done?
+        %th.head.remove Remove?
+        %th.head.arrows Up/Down
+    %script{src:"js/jquery.js"}
+    %script{src:"js/underscore.js"}
+    %script{src:"js/main.js"}
