@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Tienne:400,700);
+body {
+  font-family: 'Tienne', serif;
+  background: maroon url(../img/maroon_gradient.jpg);
+  background-size: cover; }
+
+h1 {
+  font-family: 'Tienne', serif;
+  text-align: center;
+  color: darkgray;
+  margin: 25px 0 25px 0;
+  font-weight: bolder;
+  font-size: 70px; }
+
+table#items {
+  width: 100%;
+  text-align: center; }
+
+th {
+  background-color: brown; }
