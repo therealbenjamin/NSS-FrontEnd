@@ -21,9 +21,17 @@
     .small-4.columns
       %input#buy.button.radius.success.small{type: 'button', value: 'Buy'}
   .row
-    .small-5.columns
-      %p#create_funds
-    .small-7.columns
+    .small-3.columns
+      %h4 Current Balance:
+    .small-3.columns
+      %input#balance{type: 'text', readonly: true}
+    .small-6.columns
+  .row
+    .small-3.columns
+      %h4 Total Stock Price
+    .small-3.columns
+      %input#total{type: 'text', readonly: true}
+    .small-6.columns
   .row
     .small-3.columns
       %input#funds{type: 'text', placeholder: 'Starting Funds'}
@@ -33,12 +41,6 @@
       %input#interval{type: 'text', placeholder: 'Interval'}
     .small-3.columns
       %input#add_interval.button.radius.success.small{type: 'button', value: 'Set Interval'}
-  .row
-    .small-2.columns
-      %h4.subheader Total
-    .small-3.columns
-      %input#grand_total{type: 'text', readonly: true}
-    .small-7.columns
   .row
     .small-12.columns
       %table#stock_list

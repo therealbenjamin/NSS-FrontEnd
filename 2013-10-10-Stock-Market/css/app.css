@@ -4,3 +4,7 @@ h1 {
 table {
   width: 100%;
   text-align: center; }
+
+#grand_total {
+  text-align: center;
+  font-weight: bolder; }
