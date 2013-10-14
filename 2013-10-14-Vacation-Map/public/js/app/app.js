@@ -18,6 +18,7 @@ function initialize(){
   Δlocations.on('child_added', dbLocationAdded);
   $('#set-zoom').click(clickSetZoom);
   $('#add-location').click(clickAddLocation);
+  $('#go-location').click(clickGoLocation);
   initMap(36, -86, 5);
 }
 
@@ -36,6 +37,13 @@ function clickSetZoom(){
   db.map.setZoom(zoom);
 }
 
+function clickGoLocation(){
+  var name = $('#location-select').val();
+  var location = _.find(db.locations, function(l){return l.name === name;});
+  var latLng = new google.maps.LatLng(location.coordinates.lb, location.coordinates.mb);
+  db.map.setCenter(latLng);
+}
+
 function clickAddLocation(){
   var name = getValue('#location');
   var geocoder = new google.maps.Geocoder();
@@ -45,12 +53,8 @@ function clickAddLocation(){
     location.name = results[0].formatted_address;
     location.coordinates = results[0].geometry.location;
     Δlocations.push(location);
-
-    debugger;
-
   });
 }
-
 
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
