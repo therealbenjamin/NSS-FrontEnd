@@ -2,98 +2,165 @@
 
 // Firebase Schema
 var Δdb;
+var Δbalance;
 var Δstocks;
-var Δstatistics;
 
 // Local Schema
 var db = {};
+db.balance = {};
 db.stocks = [];
-db.statistics = {};
-db.statistics.balance = 0;
-db.statistics.total = 0;
-
 
 $(document).ready(initialize);
 
 function initialize(){
   $(document).foundation();
-  $('#add_funds').click(setFunds);
-  $('#buy').click(setStock);
-  $('#add_interval').click(setInterval);
-
-  Δdb = new Firebase('https://stock-market-bb.firebaseio.com/');
+  $('#set-funds').click(setFunds);
+  $('#purchase').click(purchase);
+  $('#start-animation').click(startAnimation);
+  Δdb = new Firebase('https://stock-market-.firebaseio.com/');
+  Δbalance = Δdb.child('balance');
   Δstocks = Δdb.child('stocks');
-  Δstatistics = Δdb.child('statistics');
+  Δbalance.on('value', balanceChanged);
   Δstocks.on('child_added', stockAdded);
-  Δstatistics.on('value', balanceChanged);
 }
 
-function stockAdded(snapshot) {
-  var stock = snapshot.val();
-  addItem(stock);
-  getTotal(stock);
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+
+function setFunds(){
+  var funds = $('#get-funds').val();
+  funds = parseInt(funds, 10);
+  db.balance.cash = funds;
+  Δbalance.set(db.balance);
+  $('#get-funds').val('');
 }
 
+function purchase(){
+  var symbol = $('#symbol').val();
+  var quantity = $('#quantity').val();
+  quantity = parseInt(quantity, 10);
 
-function getStockQuote(symbol, fn) {
-  var data = {};
-  data.symbol = $('#symbol').val();
-  $.getJSON('http://dev.markitondemand.com/Api/Quote/jsonp?callback=?', data, fn); // jQuery.getJSON( url [, data ] [, success( data, textStatus, jqXHR ) ] )
-}
+  requestQuote(symbol, function(data, textStatus, jqXHR){
+    var quote = data.Data;
 
-function setFunds() {
-  db.statistics.balance = parseFloat($('#funds').val());
-  $('#balance').val('$' + db.statistics.balance);
-  Δstatistics.set(db.statistics);
-}
+    if(quote.LastPrice * quantity <= db.balance.cash){
+      db.balance.cash -= quote.LastPrice * quantity;
+      db.balance.stock += quote.LastPrice * quantity;
+      Δbalance.set(db.balance);
 
-function setStock() {
-  getStockQuote(symbol, function(data){
-    var stock = {};
+      var stock = {};
+      stock.name = quote.Name;
+      stock.symbol = symbol.toUpperCase();
+      stock.purchasePrice = quote.LastPrice;
+      stock.quantity = quantity;
+      Δstocks.push(stock);
+    }
 
-    var symbol = data.Data.Symbol;
-    var name = data.Data.Name;
-    var price = parseFloat(data.Data.LastPrice);
-    var quote = price.toFixed(2);
-    var quantity = parseInt($('#quantity').val(), 10);
-    var total = quote * quantity;
-
-    stock.symbol = symbol;
-    stock.name = name;
-    stock.boughtPrice = quote;
-    stock.purchased = quantity;
-    stock.total = total;
-
-    Δstocks.push(stock);
-
-    db.statistics.balance -= total;
-    $('#balance').val('$' + db.statistics.balance);
+    $('#symbol').val('');
+    $('#quantity').val('');
   });
 }
 
-function addItem(stock) {
-  var row = '<tr><td class="symbol"></td><td class="name"></td><td class="quote"></td><td class="purchased"></td><td class="total"></td></tr>';
-  var $row = $(row);
-  var num = parseFloat(stock.total);
-  var n = num.toFixed(2);
-
-  $row.children('.symbol').text(stock.symbol);
-  $row.children('.name').text(stock.name);
-  $row.children('.quote').text(stock.boughtPrice);
-  $row.children('.purchased').text(stock.purchased);
-  $row.children('.total').text('$' + n);
-
-  $('#stock_list').append($row);
+function startAnimation(){
+  var delay = $('#delay').val();
+  delay = parseFloat(delay, 10) * 1000;
+  setInterval(getUpdatedQuotes, delay);
 }
 
-function balanceChanged(snapshot){
-  var statistics = snapshot.val();
-  db.statistics.balance = statistics.balance;
-  $('#balance').val('$' + db.statistics.balance);
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+
+function requestQuote(symbol, fn){
+  var data = {symbol: symbol};
+  $.getJSON('http://dev.markitondemand.com/Api/Quote/jsonp?callback=?', data, fn);
 }
 
-function getTotal(stock){
-  db.statistics.total += (stock.boughtPrice * stock.purchased);
-  $('#total').val('$' + db.statistics.total);
-  Δstatistics.set(db.statistics);
+
+function getUpdatedQuotes(){
+  for(var i = 0; i < db.stocks.length; i++){
+    requestQuote(db.stocks[i].symbol, viewUpdateStockRow);
+  }
 }
+
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+
+function balanceChanged(balance){
+  balance = balance.val();
+
+  if(!balance){
+    db.balance.cash = db.balance.stock = 0;
+  } else {
+    db.balance = balance;
+  }
+
+  viewUpdateBalance();
+}
+
+function stockAdded(stock){
+  stock = stock.val();
+  db.stocks.push(stock);
+  viewAddStockRow(stock);
+}
+
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+
+function viewUpdateBalance(){
+  $('#cash').val(formatCurrency(db.balance.cash));
+  $('#stock').val(formatCurrency(db.balance.stock));
+  $('#total').val(formatCurrency(db.balance.cash + db.balance.stock));
+}
+
+function viewAddStockRow(stock){
+  var tr = '<tr><td class="name"></td><td class="symbol"></td><td class="quote"></td><td class="quantity"></td><td class="position"></td></tr>';
+  var $tr = $(tr);
+  $tr.addClass(stock.symbol).addClass('stock');
+
+  $tr.children('.name').text(stock.name);
+  $tr.children('.symbol').text(stock.symbol);
+  $tr.children('.quote').text(formatCurrency(stock.purchasePrice));
+  $tr.children('.quantity').text(stock.quantity);
+  $tr.children('.position').text(formatCurrency(stock.purchasePrice * stock.quantity));
+
+  $('#stocks').append($tr);
+}
+
+function viewUpdateStockRow(data, textStatus, jqXHR){
+  var quote = data.Data;
+  var selector = '.' + quote.Symbol;
+  var quantity = $(selector).children('.quantity').text();
+  quantity = parseFloat(quantity, 10);
+  var cls = quote.Change < 0 ? 'losing-money' : 'making-money';
+
+  $(selector).children('.quote').text(formatCurrency(quote.LastPrice));
+  $(selector).children('.position').text(formatCurrency(quote.LastPrice * quantity));
+  $(selector).removeClass('losing-money making-money').addClass(cls);
+
+  calculateNewStockTotals();
+}
+
+function calculateNewStockTotals(){
+  var positions = $('.stock .position').text().split('$');
+  positions = _.compact(positions);
+  var sum = 0;
+
+  for(var i = 0; i < positions.length; i++){
+    sum += parseFloat(positions[i]);
+  }
+
+  db.balance.stock = sum;
+  viewUpdateBalance();
+}
+
+function formatCurrency(number){
+  return '$' + number.toFixed(2);
+}
+
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //

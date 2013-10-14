@@ -14,44 +14,43 @@
     .small-12.columns
       %h1 To Mark.it
   .row
-    .small-4.columns
-      %input#symbol{type: 'text', placeholder: 'Symbol'}
-    .small-4.columns
-      %input#quantity{type: 'text', placeholder: 'Quantity'}
-    .small-4.columns
-      %input#buy.button.radius.success.small{type: 'button', value: 'Buy'}
+    .small-2.small-offset-6.columns
+      %h6 Cash
+    .small-2.columns
+      %h6 Stock
+    .small-2.columns
+      %h6 Total
   .row
-    .small-3.columns
-      %h4 Current Balance:
-    .small-3.columns
-      %input#balance{type: 'text', readonly: true}
-    .small-6.columns
-  .row
-    .small-3.columns
-      %h4 Total Stock Price
-    .small-3.columns
+    .small-2.columns
+      %input#get-funds{type: 'text', autofocus: 'true'}
+    .small-4.columns
+      %input#set-funds.button.small.success.radius{type: 'button', value: 'Set Funds'}
+    .small-2.columns
+      %input#cash{type: 'text', readonly: true}
+    .small-2.columns
+      %input#stock{type: 'text', readonly: true}
+    .small-2.columns
       %input#total{type: 'text', readonly: true}
-    .small-6.columns
   .row
-    .small-3.columns
-      %input#funds{type: 'text', placeholder: 'Starting Funds'}
-    .small-3.columns
-      %input#add_funds.button.radius.success.small{type: 'button', value: 'Set Funds' }
-    .small-3.columns
-      %input#interval{type: 'text', placeholder: 'Interval'}
-    .small-3.columns
-      %input#add_interval.button.radius.success.small{type: 'button', value: 'Set Interval'}
+    .small-2.columns
+      %input#symbol{type: 'text', placeholder: 'AAPL'}
+    .small-2.columns
+      %input#quantity{type: 'text', placeholder: '35'}
+    .small-4.columns
+      %input#purchase.button.small.radius{type: 'button', value: 'Purchase Stock'}
+    .small-2.columns
+      %input#delay{type: 'text', placeholder: '0.5'}
+    .small-2.columns
+      %input#start-animation.button.small.radius{type: 'button', value: 'Start Animation'}
   .row
     .small-12.columns
-      %table#stock_list
-        %th Name
-        %th Symbol
-        %th Quote
-        %th Purchased
-        %th Total
-
-
-
+      %table#stocks
+        %tr
+          %th Name
+          %th Symbol
+          %th Quote
+          %th Quantity
+          %th Position
 
   %script{src: 'js/vendor/jquery-1.10.2.js'}
   %script{src: 'js/vendor/foundation.min.js'}
