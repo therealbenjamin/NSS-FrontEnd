@@ -5,6 +5,8 @@ var Δdb;
 var Δpositions;
 
 // Local Schema (defined in keys.js)
+db.positions = [];
+db.path = [];
 
 $(document).ready(initialize);
 
@@ -14,9 +16,10 @@ function initialize(){
   Δpositions = Δdb.child('positions');
   Δpositions.on('child_added', dbPositionAdded);
   $('#start').click(clickStart);
+  $('#erase').click(clickErase);
+  $('#stop').click(clickStop);
   initMap(36, -86, 5);
   Δpositions.remove();
-  db.positions = [];
 }
 
 // -------------------------------------------------------------------- //
@@ -25,25 +28,39 @@ function initialize(){
 
 function dbPositionAdded(snapshot){
   var position = snapshot.val();
-
-  if(db.positions.length){
-    // already exists
-  } else {
-    htmlAddStartIcon(position);
-  }
+  var latLng = new google.maps.LatLng(position.latitude, position.longitude);
 
   db.positions.push(position);
+
+  if(db.positions.length === 1){
+    htmlAddStartIcon(latLng);
+    htmlInitializePolyLine();
+  }
+
+  db.path.push(latLng);
+  db.marker.setPosition(latLng);
+  htmlSetCenterAndZoom(latLng);
 }
 
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //
 
-function htmlAddStartIcon(position){
-  var latLng = new google.maps.LatLng(position.latitude, position.longitude);
-  var image = '/img/icons/water.png';
-  var marker = new google.maps.Marker({map: db.map, position: latLng, icon: image});
-  htmlSetCenterAndZoom(latLng);
+function htmlAddStartIcon(latLng){
+  var image = '/img/start.jpg';
+  db.marker = new google.maps.Marker({map: db.map, position: latLng, icon: image});
+}
+
+function htmlInitializePolyLine(){
+  var polyLine = new google.maps.Polyline({
+    map: db.map,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  db.path = polyLine.getPath();
 }
 
 function htmlSetCenterAndZoom(latLng){
@@ -58,6 +75,16 @@ function htmlSetCenterAndZoom(latLng){
 function clickStart(){
   var geoOptions = {enableHighAccuracy: true, maximumAge: 1000, timeout: 60000};
   db.watchId = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
+}
+
+function clickStop(){
+  navigator.geolocation.clearWatch(db.watchId);
+}
+
+function clickErase(){
+  Δpositions.remove();
+  db.positions = [];
+  db.path = [];
 }
 
 // -------------------------------------------------------------------- //
