@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Codystar);
+
+html, body, #map-canvas
+{
+  height: 100%;
+  background-color: rgb(10, 75, 141);
+}
+
+h1
+{
+  text-align: center;
+  color: orange;
+  font-family: 'Codystar', cursive;
+}
+
+.row
+{
+  background-color: rgb(10, 75, 141);
+}
+
+#map-canvas
+{
+  height: 100%;
+  border: 1px solid black;
+}
+
+#left
+{
+  float: left;
+  height: 100%;
+  width: 70%;
+}
+
+#right
+{
+  float: left;
+  width: 30%;
+}
+
+#start
+{
+  width: 120px;
+  color: orange;
+}
+
+#stop
+{
+  width: 120px;
+  color: orange;
+}
+
+#add_marker
+{
+  text-align: center;
+
+}
+
+#favorite
+{
+  width: 100%;
+  color: orange;
+}
+
+#erase
+{
+  width: 120px;
+  color: orange;
+}
