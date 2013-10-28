@@ -47,9 +47,87 @@
     </div>
   </div>
   <div class='row'>
+    <div class='small-2 columns'>
+      <div class='hidden button small' id='previous'>Previous</div>
+    </div>
+    <div class='small-2 columns'>
+      <div class='hidden button small' id='next'>Next</div>
+    </div>
+    <div class='small-8 columns'></div>
+  </div>
+  <div class='row'>
+    <div class='small-2 columns'>
+      <input id='customer-image' placeholder='image.png' type='text'>
+    </div>
+    <div class='small-2 columns'>
+      <input id='customer-name' placeholder='name' type='text'>
+    </div>
+    <div class='small-6 columns'>
+      <input id='domestic' name='address' type='radio' value='domestic'>Domestic</input>
+      <input id='international' name='address' type='radio' value='international'>International</input>
+    </div>
+    <div class='small-2 columns'>
+      <input class='small button' id='add-customer' type='button' value='Add Customer'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-2 columns'>
+      <select id='select-customer'>
+        <option>Select Customer</option>
+      </select>
+    </div>
+    <div class='small-10 columns'>
+      <table id='cart'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Count</th>
+            <th>Amount</th>
+            <th>Weight</th>
+            <th>Shipping</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td id='cart-count'></td>
+            <td id='cart-amount'></td>
+            <td id='cart-weight'></td>
+            <td id='cart-shipping'></td>
+            <td id='cart-grand'></td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class='button small' id='purchase'>Purchase</div>
+    </div>
+  </div>
+  <div class='row'>
     <div class='small-12 columns'>
-      <div class='hidden button radius small' id='previous' type='button' value='Prev'>Prev</div>
-      <div class='hidden button radius small' id='next' type='button' value='Next'>Next</div>
+      <table id='orders'>
+        <thead>
+          <tr>
+            <th>Orders</th>
+            <th>Time</th>
+            <th>Customer</th>
+            <th>Products</th>
+            <th>Total</th>
+            <th>Shipping</th>
+            <th>Grand</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tfoot>
+      </table>
     </div>
   </div>
   <script src='/js/vendor/jquery-1.10.2.js'></script>

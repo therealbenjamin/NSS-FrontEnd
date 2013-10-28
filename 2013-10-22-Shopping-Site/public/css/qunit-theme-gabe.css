@@ -113,7 +113,7 @@ h2#qunit-banner.qunit-pass:after {
 
 h2#qunit-banner.qunit-fail {
     background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU5QUIzNEU2MzE2NzExRTE4ODc3OEVFNEY2NzhDMjM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU5QUIzNEU3MzE2NzExRTE4ODc3OEVFNEY2NzhDMjM4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTlBQjM0RTQzMTY3MTFFMTg4Nzc4RUU0RjY3OEMyMzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTlBQjM0RTUzMTY3MTFFMTg4Nzc4RUU0RjY3OEMyMzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz46NEjgAAAAzElEQVR42mL8//8/AyWABUS8N1EFUS5AfA+KcQFBIE6DsjsFz9yGGAAEu6EGgEA6EM/CoRmkzhiJX8EE5bggKZyJZAsuzQwwNhMOp6IbsgpNM9jn8DCAOnsmFkNgNrlg0dyJbMAsNE0MOPgwza5AfBbdC7OgLsEHUDRjCwNChqBoxhWIxngMQI8dDAPKsSlCM2AmLgNAkh04/I3TECZcJiNFrys+Q2AGhOLQPAsaaLgMwZkS0fMDLkPgBqzGoxnZEBMg3gM1CBzdAAEGABpTMr+umvCXAAAAAElFTkSuQmCC');
-    color:#ee3324;
+    color: red;
 }
 
 h2#qunit-banner.qunit-fail:after {
@@ -281,7 +281,7 @@ b.counts b.passed {
 }
 
 b.counts b.failed {
-    background:#ee3324;
+    background: pink;
  }
 
 
@@ -312,21 +312,21 @@ b.counts b.failed {
 
 /*** Failing Styles */
 #qunit-tests li.fail ol {
-    background:#f7f7f7;
+    background: pink;
 }
 
 #qunit-tests li li.fail {
-	color: #7B7979;
-	background-color: #fff;
+	color: red;
+	background-color: lightpink;
 	border-left: 20px solid #EE3324;
 	white-space: pre;
 }
 
-#qunit-tests .fail                          { color: #EE3324; border: 1px solid #f5857c; background-color: #f7f7f7; }
+#qunit-tests .fail                          { color: pink; border: 1px solid pink; background-color: pink; }
 
 
 #qunit-tests .fail .test-actual,
-#qunit-tests .fail .test-expected           { color: #999999;   }
+#qunit-tests .fail .test-expected           { color: pink;   }
 
 
 
@@ -356,7 +356,7 @@ p#qunit-testresult span.passed {
 
 p#qunit-testresult span.failed {
     color:#FFF;
-    background:#ee3324;
+    background: pink;
 }
 
 
