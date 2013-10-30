@@ -1,0 +1,12 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  h1= title
+  a(href='/') Home
+  a(href='/list') List
+  form(action='/list', method='post')
+    mixin field('item', 'Item', 'Vacuum Cat', true)
+    mixin field('date', 'Date', 'Tomorrow')
+    mixin field('color', 'Color', 'Orange')
+    button(type='submit') Save Item

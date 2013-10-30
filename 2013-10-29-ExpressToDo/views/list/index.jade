@@ -1,0 +1,19 @@
+extends ../template/layout
+
+block content
+  h1= title
+  a(href='/') Home
+  a(href='/list/new') New
+
+  - var listItem = list[0];
+
+  if listItem
+    table#items
+      thead: tr
+        each value, property in listItem
+          th= property
+      tbody
+        each listItem, index in list
+          tr(style='background-color:#{listItem.color}')
+            each value, property in listItem
+              td= value
