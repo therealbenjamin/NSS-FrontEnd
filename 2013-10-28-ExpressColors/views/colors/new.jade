@@ -1,0 +1,6 @@
+extends ../template/layout
+block content
+  h1 New Colors Page
+  form(action='/colors', method='post', autofocus=true)
+    input(name='color', type='text', placeholder='blue')
+    button(type='submit') Save Color

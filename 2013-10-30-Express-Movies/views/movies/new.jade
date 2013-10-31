@@ -1,0 +1,27 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1 Add Movies
+  .row
+    .small-12.columns
+      h2 New Movie
+      a(href='/') Home
+      a(href='/movies')
+      form(action='/movies', method='post')
+        fieldset
+          legend New Movie
+          .row
+            mixin field('title', 'title', text, placeholder)
+            mixin field('image', 'image', text, placeholder)
+            mixin field('color', 'color', text, placeholder)
+          .row
+            mixin field('rated', 'rated', text, placeholder)
+            mixin field('studio', 'studio', text, placeholder)
+            mixin field('numTheatres', 'number of theatres', text, placeholder)
+          .row
+            mixin field('gross', 'gross', text, placeholder)
+          .row
+            button.button.radius(type='submit') Add

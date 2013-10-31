@@ -1,0 +1,19 @@
+{
+  "name": "nss-calculator",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakerella/NSS-FrontEnd.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-qunit": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-haml": "~0.1.1",
+    "grunt-contrib-clean": "~0.5.0"
+  }
+}
