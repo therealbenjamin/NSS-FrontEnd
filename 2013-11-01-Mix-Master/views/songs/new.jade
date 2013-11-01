@@ -1,0 +1,32 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1#top Add Song
+  .row
+    .small-12.columns
+      form(action='/songs', method='post')
+        fieldset
+          legend New Song
+          .row
+            .small-6.columns
+              mixin field(___, 'title', 'TITLE', null, null, true)
+            .small-6.columns
+              mixin field(___, 'duration', 'SONG DURATION (SEC)')
+          .row
+            .small-4.columns
+              mixin field(___, 'art', 'SONG IMAGE')
+            .small-4.columns
+              mixin field(___, 'filename', 'FILENAME')
+            .small-4.columns
+              mixin field(___, 'genres', 'GENRES')
+          .row
+            .small-12.columns
+              label(for='lyrics') LYRICS:
+              textarea#lyrics(name='lyrics')
+          .row
+            .small-2.columns.small-offset-8: a.button.radius.alert.small.expand(href='/songs') Cancel
+            .small-2.columns
+              button.radius.small.expand(type='submit') Save Song

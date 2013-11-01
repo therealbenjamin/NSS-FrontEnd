@@ -12,6 +12,9 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+audios/
+videos/
+*.mp3
 
 # YARD artifacts
 .yardoc
