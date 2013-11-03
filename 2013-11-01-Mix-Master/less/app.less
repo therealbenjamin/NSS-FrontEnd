@@ -2,7 +2,16 @@
 @import url(http://fonts.googleapis.com/css?family=Monofett);
 
 body{
-  background-color: @base;
+  // background-color: @base;
+  background: blue url('http://www.wallpaperfull.com/stockimage/black-gradient-background.jpg');
+}
+
+ul {
+  list-style: none;
+}
+
+audio{
+  margin: 20px 0 12px 30%;
 }
 
 #header{
@@ -11,12 +20,31 @@ body{
   border: 12px solid gray;
 }
 
-h1{
+.album{
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin: 20px;
+}
+
+
+
+#titleButton{
+  width: 54px;
+}
+
+#top{
   color: orange;
+  background: blue url('http://www.wallpaperfull.com/stockimage/black-gradient-background.jpg');
+  text-align: center;
 }
 
 legend{
   color: orange;
+}
+
+h3{
+  text-align: center;
 }
 
 #header_image_left{
@@ -42,6 +70,10 @@ legend{
   font-size: 25px;
 }
 
+#nav{
+  background: blue url('http://www.wallpaperfull.com/stockimage/black-gradient-background.jpg');
+}
+
 .button:hover{
   -webkit-transform: scale(1.1);
 }
@@ -53,4 +85,14 @@ label{
 
 #lyrics{
   height: 300px;
+}
+
+.song{
+  background: gray;
+  border: 50px solid black;
+  border-radius: 2%;
+}
+
+.clear{
+  clear: both;
 }

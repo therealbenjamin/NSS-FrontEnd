@@ -32,6 +32,22 @@ exports.create = function(req, res){
   });
 };
 
+/*
+ * DELETE /songs/:id
+ */
 
+exports.delete = function(req, res){
+  Song.findByIdAndRemove(req.params.id, function(err, song){
+    res.redirect('/songs');
+  });
+};
 
+/*
+ * GET /songs/:id
+ */
 
+exports.show = function(req, res){
+  Song.findById(req.params.id, function(err, song){
+    res.render('songs/show', {title: song.title, song: song});
+  });
+};
